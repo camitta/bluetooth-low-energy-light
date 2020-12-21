@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/camitta/bluetooth-low-energy-light/issues"
   },
-  "homepage": "https://github.com/camitta/bluetooth-low-energy-light#readme"
+  "homepage": "https://github.com/camitta/bluetooth-low-energy-light#readme",
+  "devDependencies": {
+    "webpack": "^5.11.0",
+    "webpack-cli": "^4.2.0"
+  }
 }

@@ -1,8 +1,20 @@
 module.exports = {
-  mode: "development",
-  entry: './src/index.js',
-  output: {
-    path: __dirname + '/public',
-    filename: 'bundle.js'
-  }
-}
+	entry: './app/main.js',
+	mode: 'development',
+	output: {
+		path: __dirname,
+		filename: 'bundle.js'
+	},
+	devtool: 'source-maps',
+	module: {
+		rules: [
+			{
+				test: /\.js$/,
+				exclude: /node_modules/,
+				use: {
+					loader: 'babel-loader'
+				}
+			}
+		]
+	}
+};

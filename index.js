@@ -1,22 +1,17 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+import React from 'react';
+import { render } from 'react-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-module.exports = {
-	mode: 'development',
-	entry: {
-		index: './src/index.js',
-		print: './src/print.js'
-	},
-	devtool: 'inline-source-map',
-	plugins: [
-		new CleanWebpackPlugin(),
-		new HtmlWebpackPlugin({
-			title: 'Development'
-		})
-	],
-	output: {
-		filename: '[name].bundle.js',
-		path: path.resolve(__dirname, 'dist')
-	}
-};
+import Home from './Home';
+import NotFound from './NotFound';
+
+const App = () => (
+	<Router>
+		<Switch>
+			<Route exact path='/' component={Home} />
+			<Route component={NotFound} />
+		</Switch>
+	</Router>
+);
+
+render(<App />, document.getElementById('app'));

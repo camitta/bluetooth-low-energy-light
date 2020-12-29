@@ -1,6 +1,7 @@
 const path = require('path');
 const fs = require('fs');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
 
 // App directory
 const appDirectory = fs.realpathSync(process.cwd());
@@ -23,8 +24,10 @@ module.exports = {
 
 	output: {
 		// Development filename output
-		filename: 'static/js/bundle.js'
+		path: path.resolve(__dirname, './dist'),
+		filename: 'bundle.js'
 	},
+	devtool: false,
 	devServer: {
 		// Serve index.html as the base
 		contentBase: resolveAppPath('public'),
@@ -66,6 +69,10 @@ module.exports = {
 		]
 	},
 	plugins: [
+		new webpack.SourceMapDevToolPlugin({
+			filename: '[file].map[query]'
+		}),
+		new webpack.HotModuleReplacementPlugin(),
 		// Re-generate index.html with injected script tag.
 		// The injected script tag contains a src value of the
 		// filename output defined above.

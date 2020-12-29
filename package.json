@@ -4,8 +4,8 @@
 	"description": "Interact with bluetooth device from browser",
 	"main": "index.js",
 	"scripts": {
-		"build": "webpack --config webpack.config.js",
-		"start:dev": "webpack serve"
+		"build-watch": "webpack -w",
+		"start-dev": "webpack serve"
 	},
 	"devtool": "eval-source-map",
 	"repository": {

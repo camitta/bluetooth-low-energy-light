@@ -2,7 +2,7 @@
 	"name": "bluetooth-low-energy-light",
 	"version": "1.0.0",
 	"description": "Interact with bluetooth device from browser",
-	"main": "index.js",
+	"private": true,
 	"scripts": {
 		"build-watch": "webpack -w",
 		"start-dev": "webpack serve"
@@ -20,20 +20,31 @@
 	},
 	"homepage": "https://github.com/camitta/bluetooth-low-energy-light#readme",
 	"dependencies": {
+		"@babel/plugin-transform-runtime": "^7.12.10",
+		"lodash": "^4.17.20",
 		"node-gyp": "^7.1.2",
+		"path": "^0.12.7",
+		"process": "^0.11.10",
 		"puck": "^1.1.9",
 		"python": "0.0.4",
 		"react": "^17.0.1",
 		"react-dom": "^17.0.1",
 		"react-router-dom": "^5.2.0",
-		"redux": "^4.0.5"
+		"redux": "^4.0.5",
+		"regenerator-runtime": "^0.13.7",
+		"socket.io-client": "^3.0.4"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.12.10",
+		"@babel/preset-env": "^7.12.11",
 		"babel-loader": "^8.2.2",
 		"babel-preset-react-app": "^10.0.0",
+		"clean-webpack-plugin": "^3.0.0",
+		"css-loader": "^5.0.1",
 		"html-webpack-plugin": "^5.0.0-alpha.6",
+		"inline-source-map": "^0.6.2",
 		"source-map-loader": "^2.0.0",
+		"style-loader": "^2.0.0",
 		"svg-url-loader": "^7.1.1",
 		"webpack": "^5.11.0",
 		"webpack-cli": "^4.3.0",

@@ -1,7 +1,9 @@
 const path = require('path');
 const fs = require('fs');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const webpack = require('webpack');
+const inlineSourceMap = require('inline-source-map');
 
 // App directory
 const appDirectory = fs.realpathSync(process.cwd());
@@ -27,9 +29,9 @@ module.exports = {
 		path: path.resolve(__dirname, './dist'),
 		filename: 'bundle.js'
 	},
-	devtool: false,
+	devtool: 'inline-source-map',
 	devServer: {
-		// Serve index.html as the base
+		// Serve index.html from public as the base
 		contentBase: resolveAppPath('public'),
 
 		// Enable compression
@@ -52,7 +54,10 @@ module.exports = {
 				exclude: /node_modules/,
 				include: resolveAppPath('app'),
 				use: {
-					loader: 'babel-loader'
+					loader: 'babel-loader',
+					options: {
+						presets: [ require.resolve('babel-preset-react-app') ]
+					}
 				}
 			},
 			{
@@ -65,13 +70,15 @@ module.exports = {
 						}
 					}
 				]
+			},
+			{
+				test: /\.css$/i,
+				use: [ 'style-loader', 'css-loader' ]
 			}
 		]
 	},
 	plugins: [
-		new webpack.SourceMapDevToolPlugin({
-			filename: '[file].map[query]'
-		}),
+		new CleanWebpackPlugin(),
 		new webpack.HotModuleReplacementPlugin(),
 		// Re-generate index.html with injected script tag.
 		// The injected script tag contains a src value of the
@@ -79,6 +86,9 @@ module.exports = {
 		new HtmlWebpackPlugin({
 			inject: true,
 			template: resolveAppPath('public/index.html')
+		}),
+		new webpack.ProvidePlugin({
+			process: 'process/browser'
 		})
 	]
 };

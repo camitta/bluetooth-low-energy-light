@@ -1,0 +1,63 @@
+import React, { Component } from 'react';
+// import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { browserHistory } from 'react-router';
+import { turnOn, turnOff } from '../actions';
+
+import styled from 'styled-components';
+
+export default styled.svg.attrs({
+	xmlns: 'http://www.w3.org/2000/svg',
+	version: '1.1',
+	x: '0px',
+	y: '0px'
+});
+
+
+
+// class Star extends Component {
+// 	constructor() {
+// 		super();
+// 		this.state = {
+// 			stroke: 'green',
+// 			strokeWidth: 0
+// 		};
+// 	}
+// 	handleStarClick(event) {
+// 		this.props.setState({
+// 			strokeWidth: 5
+// 		});
+// 	}
+// 	render() {
+// 		let starStyle = this.state;
+// 		return (
+// 			<svg
+// 				height='500px'
+// 				width='500px'
+// 				fill='#000000'
+// 				xmlns:dc='http://purl.org/dc/elements/1.1/'
+// 				xmlns:cc='http://creativecommons.org/ns#'
+// 				xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#'
+// 				xmlns:svg='http://www.w3.org/2000/svg'
+// 				xmlns='http://www.w3.org/2000/svg'
+// 				xmlns:sodipodi='http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd'
+// 				xmlns:inkscape='http://www.inkscape.org/namespaces/inkscape'
+// 				viewBox='0 0 511.99998 511.99998'
+// 				version='1.1'
+// 				x='0px'
+// 				y='0px'>
+// 				<g transform='translate(-91.214475,-152.15558)'>
+// 					<path
+// 						style='opacity:1;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.62148428;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1'
+// 						d='M 457.66673,190.9683 C 438.74426,345.46636 444.32298,390.94598 312.17289,408.1558 442.07885,429.25286 443.94888,476.83206 457.66673,625.3433 475.73582,475.96573 472.21733,431.21818 603.16057,408.1558 471.19442,391.20446 475.63797,345.28434 457.66673,190.9683 Z m -287.8882,3.98242 c -10.21147,83.37451 -7.19977,107.91785 -78.514254,117.20508 70.103444,11.38498 71.111444,37.06134 78.514254,117.20508 9.75094,-80.61125 7.853,-104.75952 78.51621,-117.20508 -71.21523,-9.14775 -68.81807,-33.9288 -78.51621,-117.20508 z m 71.46963,233.99414 c -7.16004,58.46029 -5.04828,75.66965 -55.05235,82.18164 49.15491,7.98288 49.86167,25.98671 55.05235,82.18164 6.83713,-56.52274 5.5069,-73.4551 55.05431,-82.18164 -49.93447,-6.4142 -48.25419,-23.79022 -55.05431,-82.18164 z'
+// 					/>
+// 				</g>
+// 			</svg>
+// 		);
+// 	}
+// }
+// export const Icons = {
+//   star: {
+//     viewBox:
+//   }
+// }

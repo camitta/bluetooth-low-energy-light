@@ -22,7 +22,7 @@ module.exports = {
 	mode: 'development',
 
 	// Entry point of app
-	entry: resolveAppPath('app'),
+	entry: [ 'babel-polyfill', './app/main' ],
 
 	output: {
 		// Development filename output

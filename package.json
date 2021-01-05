@@ -5,7 +5,8 @@
 	"private": true,
 	"scripts": {
 		"build-watch": "webpack -w",
-		"start-dev": "webpack serve"
+		"start-dev": "webpack serve",
+		"start-server": "nodemon main.js -e html,js,css --ignore public"
 	},
 	"devtool": "eval-source-map",
 	"repository": {

@@ -22,7 +22,7 @@ module.exports = {
 	mode: 'development',
 
 	// Entry point of app
-	entry: [ 'babel-polyfill', './app/main' ],
+	entry: [ './app/main.js' ],
 
 	output: {
 		// Development filename output

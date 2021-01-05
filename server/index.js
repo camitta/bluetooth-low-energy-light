@@ -1,14 +1,31 @@
-import _ from 'lodash';
-import css from '../public/style.css';
+'use strict'
 
-function component() {
-	const element = document.createElement('div');
+const express = require('express')
+const path = require('path')
+const volleyball = require('volleyball')
 
-	// Lodash, currently included via a script, is required for this line to work
-	// Lodash, now imported by this script
-	element.innerHTML = _.join([ 'Hello', 'webpack' ], ' ');
+const app = express()
 
-	return element;
-}
+// logging middleware
+app.use(volleyball)
 
-document.body.appendChild(component());
+// body parsing middleware
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
+
+// static middleware
+app.use(express.static(path.join(__dirname, '../public')))
+
+app.use('/api', require('./api')) // include our routes!
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/index.html'))
+}) // Send index.html for any other requests
+
+// error handling middleware
+app.use((err, req, res, next) => {
+  console.error(err.stack)
+  res.status(err.status || 500).send(err.message || 'Internal server error')
+})
+
+module.exports = app
